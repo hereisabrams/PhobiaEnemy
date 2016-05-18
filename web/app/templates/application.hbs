@@ -1,0 +1,66 @@
+<div class="ui fixed inverted menu">
+    <div class="ui container">
+      <a href="#" class="header item">
+        <img class="logo" src="logo.png">
+        Phobia Enemy  
+      </a>
+      {{#link-to "login" class="item"}}About{{/link-to}}
+
+      <div class="ui simple dropdown item">
+        Dropdown <i class="dropdown icon"></i>
+        <div class="menu">
+          <a class="item" href="#">Link Item</a>
+          <a class="item" href="#">Link Item</a>
+          <div class="divider"></div>
+          <div class="header">Header Item</div>
+          <div class="item">
+            <i class="dropdown icon"></i>
+            Sub Menu
+            <div class="menu">
+              <a class="item" href="#">Link Item</a>
+              <a class="item" href="#">Link Item</a>
+            </div>
+          </div>
+          <a class="item" href="#">Link Item</a>
+        </div>
+      </div>
+      <div class="right menu">
+      {{#if session.isAuthenticated}}
+        <!-- {{#if model.dependents}}
+             {{#ui-dropdown class="simple item"}}
+             Users
+             <i class="dropdown icon"></i>
+             <div class="menu">
+             {{#each model.dependents as |user|}}
+             {{#link-to "user" user class="item"}}{{user.full_name}}{{/link-to}}
+             {{/each}}
+             </div>
+             {{/ui-dropdown}}
+             {{/if}} -->
+
+        {{#link-to 'session-new' class="item"}}New Session{{/link-to}}
+        {{#ui-dropdown class="simple item"}}
+          {{model.info.username}}
+          <i class="dropdown icon"></i>
+          <div class="menu">
+            <a class="item" href="javascript:;" {{action 'invalidateSession'}}>Logout</a>
+          </div>
+        {{/ui-dropdown}}
+      {{else}}
+        {{#link-to "login" class="item"}}Login{{/link-to}}
+      {{/if}}
+    </div>
+    </div>
+  </div>
+    
+
+<div class="ui main container">
+  {{outlet}}
+</div>
+
+<div class="ui inverted vertical footer segment">
+  <div class="ui center aligned container">
+    <p class="ui centered">G8</p>
+    <p class="ui centered">2015/2016</p>
+  </div>
+</div>

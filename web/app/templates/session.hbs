@@ -1,0 +1,44 @@
+
+<h3>Manager id: {{model.manager}}</h3>
+<h3>Start: {{model.start_time}}</h3>
+
+
+{{#if model.video_url}}
+  <video id="video" width="640" height="360" controls
+         ontimeupdate={{action 'videoTimeUpdate'}}>
+    <source src="{{model.video_url}}" type="video/mp4">
+  </video>
+  <p>{{model.video_url}}</p>
+{{else}}
+  <p>No video.</p>
+{{/if}}
+
+
+
+
+
+
+{{#each model.members as |member|}}
+  {{#ui-accordion}}
+    <div class="title">
+      member
+    </div>
+    <div class="content">
+      
+  {{user-view
+        member=member
+        sensorData=sensorData
+        currTime=currTime}}
+
+    </div>
+{{/ui-accordion}}
+
+{{/each}}
+
+  <h1>Events</h1>
+  {{#each model.events as |event|}}
+    <p>
+      <a href="javascript:;" {{action 'selectEvent' event.time}}>{{event.time}}</a>
+      {{event.notes}}
+    </p>
+{{/each}}
