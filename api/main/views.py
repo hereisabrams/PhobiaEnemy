@@ -26,6 +26,9 @@ logger = logging.getLogger(__name__)
 
 
 @api_view()
+def index(request):
+    return render_to_response('web/app/templates/index.hbs', context_instance=RequestContext(request))
+
 def user_info(request):
     try:
         u = User.objects.get(django_user=request.user)
