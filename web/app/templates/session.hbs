@@ -14,14 +14,16 @@
 {{/if}}
 
 
+<div class="container">
 
 
+  <a class="btn btn-default openall">open all</a> <a href="#" class="btn btn-default closeall">close all</a>
 
 
 {{#each model.members as |member|}}
   {{#ui-accordion}}
-    <div class="title">
-      member
+    <div class="title ui massive aligned center middle button">
+      {{member.username}}
     </div>
     <div class="content">
       
@@ -42,3 +44,5 @@
       {{event.notes}}
     </p>
 {{/each}}
+
+</div>

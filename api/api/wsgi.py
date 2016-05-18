@@ -14,3 +14,12 @@ from django.core.wsgi import get_wsgi_application
 os.environ.setdefault("DJANGO_SETTINGS_MODULE", "api.settings")
 
 application = get_wsgi_application()
+
+$('.closeall').click(function(){
+  $('.panel-collapse.in')
+    .collapse('hide');
+});
+$('.openall').click(function(){
+  $('.panel-collapse:not(".in")')
+    .collapse('show');
+});
